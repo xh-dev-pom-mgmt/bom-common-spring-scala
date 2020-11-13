@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>bom-common-spring</artifactId>
+        <groupId>dev.xethh.libs.toolkits</groupId>
+        <version>1.0.1</version>
+        <relativePath/>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <artifactId>bom-common-spring-scala</artifactId>
+
+    <properties>
+        <akka.version>2.6.10</akka.version>
+        <scala.version>2.13.3</scala.version>
+        <scala.binary.version>2.13</scala.binary.version>
+    </properties>
+
+    <description>Bom common for spring, scala, and actor projects.</description>
+
+    <scm>
+        <connection>scm:git:git://github.com/xh-dev-pom-mgmt/bom-common-spring-scala.git</connection>
+        <developerConnection>scm:git:ssh://github.com:xh-dev-pom-mgmt/bom-common-spring-scala.git</developerConnection>
+        <url>https://github.com/xh-dev-pom-mgmt/bom-common-spring-scala</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-actor_${scala.binary.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-actor-typed_${scala.binary.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-stream_${scala.binary.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-cluster-typed_${scala.binary.version}</artifactId>
+                <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-http_${scala.binary.version}</artifactId>
+                <version>${akka.http.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <sourceDirectory>src/main/sources</sourceDirectory>
+        <resources><resource> <directory>src/main/resources</directory> </resource> </resources>
+        <testSourceDirectory>src/test/sources</testSourceDirectory>
+        <testResources><testResource><directory>src/test/resources</directory></testResource></testResources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>net.alchim31.maven</groupId>
+                    <artifactId>scala-maven-plugin</artifactId>
+                    <version>4.3.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
